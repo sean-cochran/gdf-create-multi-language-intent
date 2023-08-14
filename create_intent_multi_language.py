@@ -21,13 +21,13 @@ def parse_phrase_lists(phrases_list):
 def create_intent():
     # Get credentials
     credentials = service_account.Credentials.from_service_account_file(
-    '<FILEPATH TO KEY>')
+    '<FILEPATH-TO-KEY>')
 
     # Create a client
     client = dialogflowcx_v3.IntentsClient(
         credentials=credentials)
 
-    with open('multi_language_intent/multi_language_intents_input.csv',encoding="utf-8-sig") as inputFile:
+    with open('multi_language_intents_input.csv',encoding="utf-8-sig") as inputFile:
         readCSV = csv.reader(inputFile,delimiter=',')
 
         for row in readCSV:
@@ -54,7 +54,7 @@ def create_intent():
                     intent.is_fallback = False
 
                     request = dialogflowcx_v3.CreateIntentRequest(
-                        parent="<AGENT LINK>",
+                        parent="<AGENT-LINK>",
                         intent=intent,
                         language_code=language_code
                     )
