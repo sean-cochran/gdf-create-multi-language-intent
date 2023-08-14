@@ -48,9 +48,9 @@ faq.how-to-register,how do i register|how do you register|how to register|i need
 ### Setup auth
 For this example I setup a Service Account that was given the Dialogflow CX API admin role. I then created a key that was downloaded. I then give the file path to the key file on my machine. 
 
-**Be sure to replace <FILEPATH TO KEY> with the filepath to the key on your machine.**
+**Be sure to replace <FILEPATH-TO-KEY> with the filepath to the key on your machine.**
 
-**Replace <AGENT LINK> with your agent id. should look like this 'projects/<PROJECT NAME>/locations/global/agents/<AGENT ID>'**
+**Replace <AGENT-LINK> with your agent id. should look like this 'projects/PROJECT-NAME/locations/global/agents/AGENT-ID'**
 
 ```python
 from google.cloud import dialogflowcx_v3
