@@ -36,23 +36,22 @@ def create_intent():
             print(num_of_translations)
             for i in range(num_of_translations):
                 print(i)
+                n = i+i+2
+                print(n)
+                phrases_str = row[n]
+                language_code = row[n+1]
+
+                phrases_list = parse_phrase_lists(phrases_str)
+                print(phrases_list)
+                print(language_code)
+                intent = dialogflowcx_v3.Intent()
+
+                intent.display_name = display_name
+                training_phrase_list = create_training_phrase_list(phrases_list)
+                intent.training_phrases = training_phrase_list
+                intent.is_fallback = False
                 
                 if i == 0:
-                    n = i+2
-                    print(n)
-                    phrases_str = row[n]
-                    language_code = row[n+1]
-
-                    phrases_list = parse_phrase_lists(phrases_str)
-                    print(phrases_list)
-                    print(language_code)
-                    intent = dialogflowcx_v3.Intent()
-
-                    intent.display_name = display_name
-                    training_phrase_list = create_training_phrase_list(phrases_list)
-                    intent.training_phrases = training_phrase_list
-                    intent.is_fallback = False
-
                     request = dialogflowcx_v3.CreateIntentRequest(
                         parent="<AGENT-LINK>",
                         intent=intent,
@@ -67,21 +66,6 @@ def create_intent():
                     intent_id = response.name
                     print(intent_id)
                 else:
-                    n = i+3
-                    print(n)
-                    phrases_str = row[n]
-                    language_code = row[n+1]
-
-                    phrases_list = parse_phrase_lists(phrases_str)
-                    print(phrases_list)
-                    print(language_code)
-                    intent = dialogflowcx_v3.Intent()
-
-                    intent.display_name = display_name
-                    training_phrase_list = create_training_phrase_list(phrases_list)
-                    intent.training_phrases = training_phrase_list
-                    intent.is_fallback = False
-
                     intent.name = intent_id
                     update_request = dialogflowcx_v3.UpdateIntentRequest(
                         intent=intent,
